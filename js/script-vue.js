@@ -29,7 +29,22 @@ new Vue(
                         date: '17-06-2021'
                     }
                 ]
-            }
+            },
+            inputText: ''
         },
+        methods: {
+            addPost: function() {
+                let newPost = this.inputText;
+                this.myProfile.posts.push({
+                    text:newPost,
+                    date: this.getDataTimeNow
+                })
+            },           
+            getDataTimeNow: function () {
+                this.datatime = dayjs();
+                return this.datatime.format("DD/MM/YY")
+            }
+
+        }
     }
 );

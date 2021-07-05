@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+
 
     <link rel="stylesheet" href="css/style.css">
 
@@ -24,8 +26,8 @@
         </div>
 
         <div class="new-post">
-            <textarea placeholder="A cosa stai pensando?"></textarea>
-            <button class="send">CREA</button>
+            <textarea v-model="inputText" placeholder="A cosa stai pensando?"></textarea>
+            <button @click="addPost" class="send">CREA</button>
         </div>
 
         <div class="post-list">
