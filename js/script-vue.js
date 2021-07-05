@@ -30,14 +30,15 @@ new Vue(
                     }
                 ]
             },
-            inputText: ''
+            inputText: '',
+            datatime: ''
         },
         methods: {
             addPost: function() {
                 let newPost = this.inputText;
                 this.myProfile.posts.push({
                     text:newPost,
-                    date: this.getDataTimeNow
+                    date: this.getDataTimeNow()
                 })
             },           
             getDataTimeNow: function () {
