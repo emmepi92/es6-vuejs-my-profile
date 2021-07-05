@@ -5,16 +5,21 @@
     font-family: 'Open Sans', sans-serif;
 }
 
+body {
+    background-image:linear-gradient(to right, rgb(0, 127, 212), rgb(0, 255, 242));
+}
+
 #profile-page {
-    height: 1200px; /*todo: da rimuovere*/
     width: 600px;
     margin: 0 auto;
+    background-color: white;
+    padding: 24px;
 }
 
 .user-details {
     display: flex;
     align-items: center;
-    margin: 15px 0;
+    margin-bottom: 12px;
 }
 
 .user-pic {
@@ -108,5 +113,4 @@
 }
 .d-none {
     display: none;
-    border: none;
 }
