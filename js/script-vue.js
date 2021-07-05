@@ -35,11 +35,14 @@ new Vue(
         },
         methods: {
             addPost: function() {
-                let newPost = this.inputText;
-                this.myProfile.posts.push({
-                    text:newPost,
-                    date: this.getDataTimeNow()
-                })
+                if (this.inputText.trim() !== '') {
+                    let newPost = this.inputText;
+                    this.myProfile.posts.push({
+                        text:newPost,
+                        date: this.getDataTimeNow()
+                    })
+                }
+                this.inputText= ''
             },           
             getDataTimeNow: function () {
                 this.datatime = dayjs();
