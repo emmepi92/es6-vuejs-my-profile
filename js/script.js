@@ -30,7 +30,6 @@ const data = {
 const userDetailHtml = document.querySelector(".user-details");
 const postListHtml = document.querySelector(".post-list");
 const buttonInput = document.querySelector("button.send");
-const deleteHtml = document.querySelectorAll("i.fa-times");
 
 // stampa in html la parte info user
 userDetailHtml.innerHTML = `
@@ -108,6 +107,8 @@ buttonInput.addEventListener("click", function() {
 
     textInput.value = '';
 });
+
+const deleteHtml = document.querySelectorAll("i.fa-times");
 
 // cancello il post => sovrascrivo hmlt, aggiungendo una classe d-none
 deleteHtml.forEach((post,index) => {
