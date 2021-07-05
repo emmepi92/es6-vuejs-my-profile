@@ -47,6 +47,10 @@ new Vue(
             getDataTimeNow: function () {
                 this.datatime = dayjs();
                 return this.datatime.format("DD/MM/YY")
+            },
+            deletePost: function(index) {
+                this.myProfile.posts.splice(index,1);
+
             }
 
         }

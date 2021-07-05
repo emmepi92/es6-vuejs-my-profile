@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Social Profile</title>
+    <title>My Social Profile Vue</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
 
 
     <link rel="stylesheet" href="css/style.css">
@@ -32,7 +33,7 @@
 
         <div class="post-list">
 
-            <div v-for = 'post in myProfile.posts' class="post">
+            <div v-for = '(post,index) in myProfile.posts' class="post">
                 <div class="post-details">
                     <div class="user-pic">
                         <img :src="myProfile.details.pic" alt="user pic">
@@ -41,6 +42,7 @@
                         <div class="user-name">{{myProfile.details.name}} {{myProfile.details.surname}}</div>
                         <div class="post-date">{{post.date}}</div>
                     </div>
+                    <i @click="deletePost(index)" class="fas fa-times"></i>
                 </div> 
                 <div class="post-text">
                     {{post.text}}

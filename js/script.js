@@ -48,8 +48,9 @@ data.myProfile.posts.forEach((post) => {
         </div>
         <div class="details">
             <div class="user-name">${data.myProfile.details.name} ${data.myProfile.details.surname}</div>
-            <div class="post-date">${post.date}</div>
+            <div class="post-date">${post.date}</div>            
         </div>
+        <i class="fas fa-times"></i>
     </div> 
     <div class="post-text">
         ${post.text}
@@ -67,6 +68,8 @@ data.myProfile.posts.forEach((post) => {
     // adesso il nostro html preparato è il postHtml.
     // dobbiamo inserirlo nel suo container <div class="post"></div>
     // e il tutto dentro postListHtml.innerHtml.
+
+
 
     postListHtml.innerHTML += `<div class="post"> ${postHtml} </div>`
 }) 
