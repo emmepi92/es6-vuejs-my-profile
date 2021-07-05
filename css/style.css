@@ -67,10 +67,8 @@
 
 
 .post {
-    border: 1px #ccc solid;
     border-radius: 5px;
     box-shadow: 0 0 3px #ccc;
-    padding: 15px;
 }
 
 .post-media img {
@@ -80,6 +78,7 @@
 .post-details {
     display: flex;
     align-items: center;
+    padding: 15px;
 }
 
 .post-details .user-pic {
@@ -102,5 +101,12 @@
 }
 
 .post-text {
-    margin: 15px 0;
+    padding: 15px;
+}
+.post-media {
+    padding: 0 15px;
+}
+.d-none {
+    display: none;
+    border: none;
 }

@@ -38,6 +38,8 @@ userDetailHtml.innerHTML = `
 
 const postListHtml = document.querySelector(".post-list")
 
+// trasforma in funzione che stampa array TODO
+
 data.myProfile.posts.forEach((post) => {
 
     // prepariamo la parte interna dell'elemento html .post
@@ -50,7 +52,7 @@ data.myProfile.posts.forEach((post) => {
             <div class="user-name">${data.myProfile.details.name} ${data.myProfile.details.surname}</div>
             <div class="post-date">${post.date}</div>            
         </div>
-        <i class="fas fa-times"></i>
+        <i  class="fas fa-times"></i>
     </div> 
     <div class="post-text">
         ${post.text}
@@ -112,4 +114,17 @@ buttonInput.addEventListener("click", function() {
     postListHtml.innerHTML += `<div class="post"> ${newPost} </div>`
 
 })
+
+const deleteHtml = document.querySelectorAll("i.fa-times");
+
+for (let x=0; x< deleteHtml.length; x++) {
+    deleteHtml[x].addEventListener('click', function() {
+
+        const deletePost = document.getElementsByClassName("post");
+
+        deletePost[x].innerHTML ='<div class="d-none"> </div>';
+    });
+}
+
+
 
