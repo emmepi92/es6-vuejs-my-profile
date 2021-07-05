@@ -117,14 +117,13 @@ buttonInput.addEventListener("click", function() {
 
 const deleteHtml = document.querySelectorAll("i.fa-times");
 
-for (let x=0; x< deleteHtml.length; x++) {
-    deleteHtml[x].addEventListener('click', function() {
+deleteHtml.forEach((post,index) => {
+    post.addEventListener('click', function() {
 
-        const deletePost = document.getElementsByClassName("post");
-
-        deletePost[x].innerHTML ='<div class="d-none"> </div>';
+        const deletePost = document.getElementsByClassName("post");    
+        deletePost[index].innerHTML ='<div class="d-none"> </div>';
     });
-}
+})
 
 
 
