@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Social Profile</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+    <div id="profile-page">
+
+        <div class="user-details">
+            <div class="user-pic"><img :src="myProfile.details.pic" alt="user pic"></div>
+            <div class="user-name">{{myProfile.details.name}} {{myProfile.details.surname}}</div>
+        </div>
+
+        <div class="new-post">
+            <textarea placeholder="A cosa stai pensando?"></textarea>
+            <button class="send">CREA</button>
+        </div>
+
+        <div class="post-list">
+
+            <div v-for = 'post in myProfile.posts' class="post">
+                <div class="post-details">
+                    <div class="user-pic">
+                        <img :src="myProfile.details.pic" alt="user pic">
+                    </div>
+                    <div class="details">
+                        <div class="user-name">{{myProfile.details.name}} {{myProfile.details.surname}}</div>
+                        <div class="post-date">{{post.date}}</div>
+                    </div>
+                </div> 
+                <div class="post-text">
+                    {{post.text}}
+                </div>
+
+                <!-- if? -->
+                <div v-if = "Object.keys(post).includes('mediaPath')" class="post-media">
+                    <img :src='post.mediaPath' alt="media" />
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <script src="./js/script-vue.js"></script>
+</body>
+</html>

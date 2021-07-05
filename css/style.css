@@ -1,0 +1,103 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#profile-page {
+    height: 1200px; /*todo: da rimuovere*/
+    width: 600px;
+    margin: 0 auto;
+}
+
+.user-details {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.user-details .user-pic{
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 50%;
+    position: relative;
+}
+
+.user-details .user-pic img {
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    
+}
+
+.user-details .user-name {
+    margin-left: 15px;
+    font-weight: bold;
+}
+
+.new-post {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.new-post textarea {
+    flex-grow: 1;
+    border: 1px #ccc solid;
+    height: 40px;
+    font-size: 18px;
+    padding: 5px;
+}
+
+.new-post .send {
+    padding: 0 30px;
+    background: #1877F2;
+    color: #fff;
+    border: 0;
+    font-weight: bold;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+}
+
+
+.post {
+    border: 1px #ccc solid;
+    border-radius: 5px;
+    box-shadow: 0 0 3px #ccc;
+    padding: 15px;
+}
+
+.post-media img {
+    width: 100%;
+}
+
+.post-details {
+    display: flex;
+    align-items: center;
+}
+
+.post-details .user-pic img {
+    width: 40px;
+    border-radius: 50%;
+}
+
+.post-details .details {
+    margin-left: 15px;
+}
+
+.post-details .details .user-name {
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.post-details .details .post-date {
+    font-size: 11px;
+}
+
+.post-text {
+    margin: 15px 0;
+}
