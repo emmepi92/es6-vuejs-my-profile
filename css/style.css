@@ -4,24 +4,7 @@
     padding: 0;
     font-family: 'Open Sans', sans-serif;
 }
-
-body {
-    background-image:linear-gradient(to right, rgb(0, 127, 212), rgb(0, 255, 242));
-}
-
-#profile-page {
-    width: 600px;
-    margin: 0 auto;
-    background-color: white;
-    padding: 24px;
-}
-
-.user-details {
-    display: flex;
-    align-items: center;
-    margin-bottom: 12px;
-}
-
+/* utility classes */
 .user-pic {
     position: relative;
     position: relative;
@@ -35,17 +18,37 @@ body {
     left: 50%;
     transform: translate(-50%,-50%);   
 }
+/* End utility */
+
+body {
+    background-image:linear-gradient(to right, rgb(0, 127, 212), rgb(0, 255, 242));
+}
+
+#profile-page {
+    width: 600px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 24px;
+}
+
+/* Info User  */
+.user-details {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
 .user-details .user-pic {
     width: 50px;
     height: 50px;
 }
-
 
 .user-details .user-name {
     margin-left: 15px;
     font-weight: bold;
 }
 
+/* New post  */
 .new-post {
     display: flex;
     margin-bottom: 30px;
@@ -53,26 +56,29 @@ body {
 
 .new-post textarea {
     flex-grow: 1;
-    border: 1px rgb(0, 127, 212) solid;
+    border: none;
     height: 40px;
     font-size: 18px;
     padding: 5px;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     outline:rgb(0, 127, 212);
+    box-shadow: 0 0 5px rgb(0, 127, 212);
+
 }
 
 .new-post .send {
     padding: 0 30px;
     background: rgb(0, 127, 212);
     color: #fff;
-    border: 0;
+    border: none;
     font-weight: bold;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
-
+    box-shadow: 0 0 10px rgb(0, 127, 212);
 }
 
+/* Post list */
 .post {
     border-radius: 10px;
     box-shadow: 0 0 5px rgb(0, 127, 212);
@@ -91,6 +97,7 @@ body {
     display: flex;
     align-items: center;
     padding: 15px;
+    padding-bottom: 0;
 }
 
 .post-details .user-pic {
@@ -115,9 +122,7 @@ body {
 .post-text {
     padding: 15px;
 }
-.post-media {
-    padding: 0 15px;
-}
+
 .d-none {
     display: none;
 }

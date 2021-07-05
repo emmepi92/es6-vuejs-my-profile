@@ -27,19 +27,18 @@ const data = {
     }
 };
 
-const userDetailHtml = document.querySelector(".user-details")
+const userDetailHtml = document.querySelector(".user-details");
+const postListHtml = document.querySelector(".post-list");
+const buttonInput = document.querySelector("button.send");
+const deleteHtml = document.querySelectorAll("i.fa-times");
 
+// stampa in html la parte info user
 userDetailHtml.innerHTML = `
     <div class="user-pic"><img src="${data.myProfile.details.pic}" alt="user pic"></div>
     <div class="user-name">${data.myProfile.details.name} ${data.myProfile.details.surname} </div>
 `
 
-// in vuejs sarà: {{ myProfile.details.name }}
-
-const postListHtml = document.querySelector(".post-list")
-
-// trasforma in funzione che stampa array TODO
-
+// stampa in html tutti i post salvati nel data
 data.myProfile.posts.forEach((post) => {
 
     // prepariamo la parte interna dell'elemento html .post
@@ -70,17 +69,10 @@ data.myProfile.posts.forEach((post) => {
     // adesso il nostro html preparato è il postHtml.
     // dobbiamo inserirlo nel suo container <div class="post"></div>
     // e il tutto dentro postListHtml.innerHtml.
-
-
-
     postListHtml.innerHTML += `<div class="post"> ${postHtml} </div>`
 }) 
 
-
-const buttonInput = document.querySelector("button.send");
-console.log(data.myProfile.posts.length)
-
-
+// stampa il nuovo post => dalla textarea
 buttonInput.addEventListener("click", function() {
 
     let datatime = dayjs();
@@ -89,34 +81,35 @@ buttonInput.addEventListener("click", function() {
     const textInput = document.querySelector("textarea");
 
     //prendo il valore dell'input
-    let newObj = textInput.value
-    console.log(newObj)
+    let newObj = textInput.value;
 
-    //pusho nell'array
-    data.myProfile.posts.push({text:newObj, date:datatime.format("DD/MM/YY")});
-    console.log(data.myProfile.posts.length,data.myProfile.posts[data.myProfile.posts.length - 1] );
+    if (newObj.trim() !== '') {
+
+        //pusho nell'array
+        data.myProfile.posts.push({text:newObj, date:datatime.format("DD/MM/YY")});
+        console.log(data.myProfile.posts.length,data.myProfile.posts[data.myProfile.posts.length - 1] );
+    
+        let newPost = `
+        <div class="post-details"> 
+            <div class="user-pic">
+                <img src="${data.myProfile.details.pic}" alt="user pic">
+            </div>
+            <div class="details">
+                <div class="user-name">${data.myProfile.details.name} ${data.myProfile.details.surname}</div>
+                <div class="post-date">${datatime.format("DD/MM/YY")}</div>
+            </div>
+        </div> 
+        <div class="post-text">
+            ${newObj}
+        </div>
+        ` 
+        postListHtml.innerHTML += `<div class="post"> ${newPost} </div>`
+    }
+
     textInput.value = '';
+});
 
-    let newPost = `
-    <div class="post-details"> 
-        <div class="user-pic">
-            <img src="${data.myProfile.details.pic}" alt="user pic">
-        </div>
-        <div class="details">
-            <div class="user-name">${data.myProfile.details.name} ${data.myProfile.details.surname}</div>
-            <div class="post-date">${datatime.format("DD/MM/YY")}</div>
-        </div>
-    </div> 
-    <div class="post-text">
-        ${newObj}
-    </div>
-    ` 
-    postListHtml.innerHTML += `<div class="post"> ${newPost} </div>`
-
-})
-
-const deleteHtml = document.querySelectorAll("i.fa-times");
-
+// cancello il post => sovrascrivo hmlt, aggiungendo una classe d-none
 deleteHtml.forEach((post,index) => {
     post.addEventListener('click', function() {
 
